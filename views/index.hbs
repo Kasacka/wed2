@@ -1,0 +1,23 @@
+<a href="/note">Create New Note</a>
+<button>By Finish Date</button>
+<button>By Created Date</button>
+<button>By Importance</button>
+<div>
+<hr />
+{{#each notes}}
+<div>
+    <label>{{title}}</label>
+    <div>
+        <span>erledigt</span>
+        {{#if isFinished}}
+        <input type="checkbox" disabled="disabled" checked="checked" />
+        {{^}}
+        <input type="checkbox" disabled="disabled" />
+        {{/if}}
+    </div>
+    <textarea disabled="disabled">{{description}}</textarea>
+    <span>{{dueTimeLabel}}</span>
+</div>
+<hr />
+{{/each}}
+</div>

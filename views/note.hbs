@@ -1,0 +1,25 @@
+<form method="POST" action="/note" class="container">
+    <input type="hidden" name="_method" value="put" />
+    <div>
+        <label>Titel</label>
+        <input name="title" />
+    </div>
+    <div>
+        <label>Beschreibung</label>
+        <textarea name="description"></textarea>
+    </div>
+    <div>
+        <label>Wichtigkeit</label>
+        <input type="number" name="priority" />
+    </div>
+    <div>
+        <label>Fertig bis</label>
+        <input type="date" name="finishedUntil" />
+    </div>
+    <div>
+        <input type="checkbox" name="isFinished" value="1" />
+        <label>Erledigt</label>
+    </div>
+    <button>Anlegen</button>
+    <a href="/">Abbrechen</a>
+</form>
