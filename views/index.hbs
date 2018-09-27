@@ -6,18 +6,31 @@
 <hr />
 {{#each notes}}
 <div>
-    <label>{{title}}</label>
-    <div>
-        <span>erledigt</span>
-        {{#if isFinished}}
-        <input type="checkbox" disabled="disabled" checked="checked" />
-        {{^}}
-        <input type="checkbox" disabled="disabled" />
-        {{/if}}
-    </div>
-    <textarea disabled="disabled">{{description}}</textarea>
-    <span>{{dueTimeLabel}}</span>
+    <table>
+        <tr>
+            <td>{{dueTimeLabel}}</td>
+            <td>{{title}}</td>
+            <td>
+                {{#each priority}}*{{/each}}
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 45%;">
+                {{#if isFinished}}
+                <input type="checkbox" disabled="disabled" checked="checked" />
+                {{^}}
+                <input type="checkbox" disabled="disabled" />
+                {{/if}}
+                <span>erledigt</span>
+            </td>
+            <td style="width: 65%;">
+                <textarea style="width: 100%;" disabled="disabled">{{description}}</textarea>
+            </td>
+        </tr>
+    </table>
+    <a href="/deleteNote/{{_id}}">löschen</a>
 </div>
+<hr />
 <hr />
 {{/each}}
 </div>

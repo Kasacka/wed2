@@ -9,6 +9,14 @@
             resolve(result);
     }
 
+    async function deleteById(noteId) {
+        return new Promise((resolve, reject) => {
+            db.remove({ _id : noteId }, {}, (error, nofRemoved) => {
+                handleAsyncResult(error, nofRemoved, resolve, reject);
+            });
+        });
+    }
+
     async function create(note) {
         return new Promise((resolve, reject) => {
             db.insert(note, (error, newNote) => {
@@ -36,6 +44,7 @@
     module.exports = {
         create: create,
         getById: getById,
-        getAll: getAll
+        getAll: getAll,
+        deleteById: deleteById
     }
 })();

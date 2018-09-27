@@ -28,6 +28,7 @@
 
     app.get('/', noteController.index.bind(noteController));
     app.put('/note', noteController.create.bind(noteController));
+    app.get('/deleteNote/:id', noteController.delete.bind(noteController));
     app.get('/note', (request, response) => {
         response.render('note', {});
     });
