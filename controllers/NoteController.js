@@ -1,5 +1,6 @@
 const noteDataService = require('../services/NoteDataService');
 const dueTimeLabelService = require('../services/DueTimeLabelService');
+const url = require('url');
 
 function index(_, response) {
     noteDataService.getAll()
@@ -8,7 +9,19 @@ function index(_, response) {
             note.dueTimeLabel = dueTimeLabelService.getDueTimeLabelByDate(finishedUntil);
             return note;
         }))
+        .then(notes => notes.map(note => {
+            note.priority = createRange(1, note.priority);
+            return note;
+        }))
         .then(notes => response.render('index', { notes : notes }));
+}
+
+function createRange(start, end) {
+    let range = [];
+    for (let index = start; index <= end; ++index) {
+        range.push(index);
+    }
+    return range;
 }
 
 function create(request, response) {
@@ -24,7 +37,14 @@ function create(request, response) {
     .then(_ => response.redirect('/'));
 }
 
+function deleteNote(request, response) {
+    const id = request.params.id;
+    noteDataService.deleteById(id)
+        .then(nofRemoved => response.redirect('/'));
+}
+
 module.exports = {
     index: index,
-    create: create
+    create: create,
+    delete: deleteNote
 };

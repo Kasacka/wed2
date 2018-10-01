@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"title":"Hans Meier","description":"Fischpointer","priority":"2","finishedUntil":"2018-12-12","isFinished":false,"_id":"79mdjWR7zM0gueg6"}
 {"title":"Fisch","description":"Hans Meiert","priority":"4","finishedUntil":"2019-12-12","isFinished":true,"_id":"REc6zY5lvMnpffuj"}
 {"title":"","description":"","priority":"","finishedUntil":"2018-12-12","isFinished":false,"_id":"a2OLoxMXly9H2BTV"}
@@ -5,3 +6,10 @@
 {"title":"Hansi","description":"Testi","priority":"4","finishedUntil":"2018-12-12","isFinished":true,"_id":"xAl3r0Uk38wla7K6"}
 {"title":"Hans","description":"sdfasdfadsfsad\r\nasdf\r\ndsf\r\nsaf","priority":"3","finishedUntil":"2012-01-01","isFinished":false,"_id":"yBF6R5mLxdig7rTJ"}
 {"title":"sdaf","description":"huhkjlh","priority":"3","finishedUntil":"2018-09-12","isFinished":false,"_id":"8LPjeH4Uw4uEUwSZ"}
+=======
+{"title":"Beni umbringen","description":"Beni häuten\r\nBeni töten","priority":"5","finishedUntil":"2018-12-12","isFinished":true,"_id":"7arzRvsBn7puqjYd"}
+{"title":"Stocker schlagen","description":"Schlagstock kaufen\r\nStocker windelweich prügeln","priority":"3","finishedUntil":"2018-10-10","isFinished":true,"_id":"IVsgxx2GKDatXsmx"}
+{"title":"sadf","description":"asdf","priority":"3","finishedUntil":"2018-10-10","isFinished":true,"_id":"J0oufhZy7G2OcgIn"}
+{"$$deleted":true,"_id":"7arzRvsBn7puqjYd"}
+{"title":"sdh","description":"asfhhj","priority":"10","finishedUntil":"","isFinished":false,"_id":"A65xpXNbN4MTDAIW"}
+>>>>>>> 844827fc98f39843610ce565168ba7168648b6d3
