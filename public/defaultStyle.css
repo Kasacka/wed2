@@ -22,7 +22,11 @@ a, button {
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
-  }
+}
+
+.active {
+    background-color: lightblue;
+}
 
 input[type=checkbox] {
     display: inline-block;

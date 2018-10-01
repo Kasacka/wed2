@@ -19,6 +19,7 @@
 
     async function create(note) {
         return new Promise((resolve, reject) => {
+            note.createdDate = Date.now();
             db.insert(note, (error, newNote) => {
                 handleAsyncResult(error, newNote, resolve, reject);
             });
@@ -29,6 +30,19 @@
         return new Promise((resolve, reject) => {
             db.findOne({ _id: id }, (error, note) => {
                 handleAsyncResult(error, note, resolve, reject);
+            });
+        });
+    }
+
+    async function getAllSorted(sortAttribute, direction) {
+        let sortSettings = {};
+        sortSettings[sortAttribute] = direction;
+
+        console.log(sortSettings);
+
+        return new Promise((resolve, reject) => {
+            db.find({}).sort(sortSettings).exec((error, notes) => {
+                handleAsyncResult(error, notes, resolve, reject);
             });
         });
     }
@@ -45,6 +59,7 @@
         create: create,
         getById: getById,
         getAll: getAll,
+        getAllSorted: getAllSorted,
         deleteById: deleteById
     }
 })();

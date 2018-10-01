@@ -2,7 +2,7 @@
     <input type="hidden" name="_method" value="put" />
     <div>
         <label>Titel</label>
-        <input name="title" required />
+        <input name="title" required minlength="1" />
     </div>
     <div>
         <label>Beschreibung</label>
@@ -10,11 +10,11 @@
     </div>
     <div>
         <label>Wichtigkeit</label>
-        <input type="number" name="priority" />
+        <input type="number" name="priority" min="0" max="5" required />
     </div>
     <div>
         <label>Fertig bis</label>
-        <input type="date" name="finishedUntil" />
+        <input type="datetime-local" name="finishedUntil" required />
     </div>
     <div>
         <input type="checkbox" name="isFinished" value="1" />

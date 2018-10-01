@@ -1,7 +1,22 @@
 <a href="/note">Create New Note</a>
-<button>By Finish Date</button>
-<button>By Created Date</button>
-<button>By Importance</button>
+{{#if finishedUntilActive}}
+<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="active">By Finish Date</a>
+{{^}}
+<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}">By Finish Date</a>
+{{/if}}
+
+{{#if createdDateActive}}
+<a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="active">By Created Date</a>
+{{^}}
+<a href="/?sortBy=createdDate&direction={{createdDateDirection}}">By Created Date</a>
+{{/if}}
+
+{{#if priorityActive}}
+<a href="/?sortBy=priority&direction={{priorityDirection}}" class="active">By Importance</a>
+{{^}}
+<a href="/?sortBy=priority&direction={{priorityDirection}}">By Importance</a>
+{{/if}}
+
 <div>
 <hr />
 {{#each notes}}
