@@ -1,29 +1,29 @@
 <form method="POST" action="/note" class="container">
     <input type="hidden" name="id" value="{{_id}}" />
     <input type="hidden" name="_method" value="put" />
-    <div>
-        <label>Titel</label>
-        <input name="title" required minlength="1" value="{{title}}" />
+    <div class="flex">
+        <label class="caption">Titel</label>
+        <input class="control form-control" name="title" required minlength="1" value="{{title}}" />
     </div>
-    <div>
-        <label>Beschreibung</label>
-        <textarea name="description">{{description}}</textarea>
+    <div class="flex">
+        <label class="caption">Beschreibung</label>
+        <textarea class="control form-control" name="description">{{description}}</textarea>
     </div>
-    <div>
-        <label>Wichtigkeit</label>
-        <input type="number" name="priority" min="0" max="5" required value="{{priority}}" />
+    <div class="flex">
+        <label class="caption">Wichtigkeit</label>
+        <input class="control form-control" type="number" name="priority" min="0" max="5" required value="{{priority}}" />
     </div>
-    <div>
-        <label>Fertig bis</label>
-        <input type="datetime-local" name="finishedUntil" required value="{{finishedUntil}}" />
+    <div class="flex">
+        <label class="caption">Fertig bis</label>
+        <input class="control form-control" type="datetime-local" name="finishedUntil" required value="{{finishedUntil}}" />
     </div>
-    <div>
+    <div class="flex">
+        <label class="caption">Erledigt</label>
         {{#if isFinished}}
-        <input type="checkbox" name="isFinished" value="1" checked />
+        <input type="checkbox" name="isFinished" value="1" class="control" checked />
         {{^}}
-        <input type="checkbox" name="isFinished" value="1" />
+        <input type="checkbox" name="isFinished" class="control" value="1" />
         {{/if}}
-        <label>Erledigt</label>
     </div>
     <button class="btn btn-primary">Anlegen</button>
     <a href="/" class="btn btn-secondary">Abbrechen</a>

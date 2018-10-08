@@ -8,23 +8,24 @@ body {
 
 .flex {
     display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
     flex-wrap: wrap;
-}
-
-.flex-item {
-    margin: 10px;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.flex-item:not(:first-child) {
-    flex: 1;
-}
-
-.flex-item:nth-child(1) {
-    width: 100%;
+    align-items: center;
 }
 
 textarea {
     resize: none;
+}
+
+.caption {
+    width: 15%;
+    margin: auto 0;
+    min-width: 100px;
+}
+
+.control {
+    flex-grow: 1;
+    width: 85%;
+    margin: 10px 0;
 }
