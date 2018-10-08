@@ -1,23 +1,28 @@
 <form method="POST" action="/note" class="container">
+    <input type="hidden" name="id" value="{{_id}}" />
     <input type="hidden" name="_method" value="put" />
     <div>
         <label>Titel</label>
-        <input name="title" required minlength="1" />
+        <input name="title" required minlength="1" value="{{title}}" />
     </div>
     <div>
         <label>Beschreibung</label>
-        <textarea name="description"></textarea>
+        <textarea name="description">{{description}}</textarea>
     </div>
     <div>
         <label>Wichtigkeit</label>
-        <input type="number" name="priority" min="0" max="5" required />
+        <input type="number" name="priority" min="0" max="5" required value="{{priority}}" />
     </div>
     <div>
         <label>Fertig bis</label>
-        <input type="datetime-local" name="finishedUntil" required />
+        <input type="datetime-local" name="finishedUntil" required value="{{finishedUntil}}" />
     </div>
     <div>
+        {{#if isFinished}}
+        <input type="checkbox" name="isFinished" value="1" checked />
+        {{^}}
         <input type="checkbox" name="isFinished" value="1" />
+        {{/if}}
         <label>Erledigt</label>
     </div>
     <button class="btn btn-primary">Anlegen</button>

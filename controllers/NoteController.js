@@ -48,14 +48,27 @@ function range(start, end) {
 function create(request, response) {
     let data = request.body;
     let isFinished = 'isFinished' in data && data.isFinished === '1';
+    if (data.id) {
+        noteDataService.update(data.id, {
+            title: data.title,
+            description: data.description,
+            priority: data.priority,
+            finishedUntil: data.finishedUntil,
+            isFinished: isFinished
+        }).then(_ => response.redirect('/'));
+    } else {
+        createEntry(data, isFinished, response);
+    }
+}
+
+function createEntry(data, isFinished, response) {
     noteDataService.create({
         title: data.title,
         description: data.description,
         priority: data.priority,
         finishedUntil: data.finishedUntil,
         isFinished: isFinished
-    })
-    .then(_ => response.redirect('/'));
+    }).then(_ => response.redirect('/'));
 }
 
 function deleteNote(request, response) {
@@ -64,8 +77,20 @@ function deleteNote(request, response) {
         .then(_ => response.redirect('/'));
 }
 
+
+function newNote(request, response) {
+    response.render('note', {});
+}
+
+function editNote(request, response) {
+    noteDataService.getById(request.params.id)
+        .then(note => response.render('note', note));
+}
+
 module.exports = {
     index: index,
     create: create,
-    delete: deleteNote
+    delete: deleteNote,
+    newNote: newNote,
+    edit: editNote
 };

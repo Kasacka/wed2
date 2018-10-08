@@ -26,6 +26,14 @@
         });
     }
 
+    async function update(id, note) {
+        return new Promise((resolve, reject) => {
+            db.update({ _id: id }, note, (error, number) => {
+                handleAsyncResult(error, number, resolve, reject);
+            });
+        });
+    }
+
     async function getById(id) {
         return new Promise((resolve, reject) => {
             db.findOne({ _id: id }, (error, note) => {
@@ -54,6 +62,7 @@
 
     module.exports = {
         create: create,
+        update: update,
         getById: getById,
         getAll: getAll,
         getAllSorted: getAllSorted,
