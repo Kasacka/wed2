@@ -1,51 +1,42 @@
-<a href="/note">Create New Note</a>
-{{#if finishedUntilActive}}
-<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="active">By Finish Date</a>
-{{^}}
-<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}">By Finish Date</a>
-{{/if}}
+<a href="/note" class="btn btn-secondary">Neue Notiz erstellen</a>
 
-{{#if createdDateActive}}
-<a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="active">By Created Date</a>
-{{^}}
-<a href="/?sortBy=createdDate&direction={{createdDateDirection}}">By Created Date</a>
-{{/if}}
+<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="btn 
+{{#if finishedUntilActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Fälligkeitsdatum</a>
 
-{{#if priorityActive}}
-<a href="/?sortBy=priority&direction={{priorityDirection}}" class="active">By Importance</a>
-{{^}}
-<a href="/?sortBy=priority&direction={{priorityDirection}}">By Importance</a>
-{{/if}}
+<a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="btn
+ {{#if createdDateActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Erstellungsdatum</a>
+
+<a href="?sortBy=priority&direction={{priorityDirection}}" class="btn
+ {{#if priorityActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Priorität</a>
 
 <div>
-<hr />
 {{#each notes}}
-<div>
-    <table>
-        <tr>
-            <td>{{dueTimeLabel}}</td>
-            <td>{{title}}</td>
-            <td>
+<div style="background-color: grey;" class="flex">
+    <div class="flex-item">
+        <span class="flex-item">
+            <span>{{dueTimeLabel}}</span>
+            <span>{{title}}</span>
+            <span>
                 {{#each priority}}*{{/each}}
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 45%;">
+            </span>
+        </span>
+        <span class="flex-item">
+            <span>
                 {{#if isFinished}}
-                <input type="checkbox" disabled="disabled" checked="checked" />
+                <input type="checkbox" disabled="disabled" checked="checked" class="form-control" />
                 {{^}}
                 <input type="checkbox" disabled="disabled" />
                 {{/if}}
                 <span>erledigt</span>
-            </td>
-            <td style="width: 65%;">
-                <textarea style="width: 100%;" disabled="disabled">{{description}}</textarea>
-            </td>
-        </tr>
-    </table>
-    <a href="/deleteNote/{{_id}}">löschen</a>
+            </span>
+            <span>
+                <textarea disabled="disabled" class="form-control">{{description}}</textarea>
+            </span>
+        </span>
+        <div>
+            <a href="/deleteNote/{{_id}}" class="btn btn-secondary">löschen</a>
+        </div>
+    </div>
 </div>
-<hr />
-<hr />
 {{/each}}
 </div>

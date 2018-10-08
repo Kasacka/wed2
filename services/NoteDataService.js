@@ -1,6 +1,6 @@
 (async function() {
     const Datastore = require('nedb');
-    const db = new Datastore({ filename: 'data.db', autoload: true });
+    const db = new Datastore({ filename: 'database/data.db', autoload: true });
 
     function handleAsyncResult(error, result, resolve, reject) {
         if (error)
@@ -37,9 +37,6 @@
     async function getAllSorted(sortAttribute, direction) {
         let sortSettings = {};
         sortSettings[sortAttribute] = direction;
-
-        console.log(sortSettings);
-
         return new Promise((resolve, reject) => {
             db.find({}).sort(sortSettings).exec((error, notes) => {
                 handleAsyncResult(error, notes, resolve, reject);

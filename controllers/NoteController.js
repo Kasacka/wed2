@@ -9,35 +9,40 @@ function mapNoteToDueLabelNote(note) {
 }
 
 function mapNoteToPriorityNote(note) {
-    note.priority = createRange(1, note.priority);
+    note.priority = range(1, note.priority);
     return note;
 }
 
 function index(request, response) {
     let query = url.parse(request.url, true).query;
-    let sortAttribute = query.sortBy || 'finishedUntil';
+    let sortBy = query.sortBy || 'finishedUntil';
     let direction = query.direction || 1;
 
-    noteDataService.getAllSorted(sortAttribute, direction)
+    noteDataService.getAllSorted(sortBy, direction)
         .then(notes => notes.map(mapNoteToDueLabelNote))
         .then(notes => notes.map(mapNoteToPriorityNote))
-        .then(notes => response.render('index', {
-            notes : notes,
-            finishedUntilActive: sortAttribute === 'finishedUntil',
-            createdDateActive: sortAttribute === 'createdDate',
-            priorityActive: sortAttribute === 'priority',
-            finishedUntilDirection: sortAttribute === 'finishedUntil' ? -direction : 1,
-            createdDateDirection: sortAttribute === 'createdDate' ? -direction : 1,
-            priorityDirection: sortAttribute === 'priority' ? -direction : 1
-        }));
+        .then(notes => renderIndex(response, notes, sortBy, direction));
 }
 
-function createRange(start, end) {
-    let range = [];
-    for (let index = start; index <= end; ++index) {
-        range.push(index);
-    }
-    return range;
+function renderIndex(response, notes, sortBy, direction) {
+    let viewData = {
+        finishedUntilActive: sortBy === 'finishedUntil',
+        createdDateActive: sortBy === 'createdDate',
+        priorityActive: sortBy === 'priority',
+        notes: notes
+    };
+    
+    viewData.finishedUntilDirection = viewData.finishedUntilActive ? -direction : 1;
+    viewData.createdDateDirection = viewData.createdDateActive ? -direction : 1;
+    viewData.priorityDirection = viewData.priorityActive ? -direction : 1;
+
+    return response.render('index', viewData);
+}
+
+function range(start, end) {
+    if (start == end)
+        return [start];
+    return [start, ...range(start + 1, end)];
 }
 
 function create(request, response) {
@@ -56,7 +61,7 @@ function create(request, response) {
 function deleteNote(request, response) {
     const id = request.params.id;
     noteDataService.deleteById(id)
-        .then(nofRemoved => response.redirect('/'));
+        .then(_ => response.redirect('/'));
 }
 
 module.exports = {

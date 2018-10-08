@@ -1,49 +1,30 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #ccc;
-}
-
-label {
-    font-weight: bold;
-}
-
-a, button {
-    border: none;
-    cursor: pointer;
-    padding: 8px 16px;
-    font-size: 1em;
-    font-weight: bold;
-    color: black;
-    display: inline-block;
-    border-radius: 2px;
-    background-color: white;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    text-decoration: none;
-    text-align: center;
-    white-space: nowrap;
-}
-
-.active {
     background-color: lightblue;
 }
 
-input[type=checkbox] {
-    display: inline-block;
-    width: 20px;
+.error {
+    background-color: red;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 5px;
-    margin: 4px;
-    display: inline-block;
-    border: 1px solid #ddd;
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    margin: 10px;
+    padding: 20px;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 
-.container {
-    padding: 15px;
+.flex-item:not(:first-child) {
+    flex: 1;
+}
+
+.flex-item:nth-child(1) {
+    width: 100%;
+}
+
+textarea {
+    resize: none;
 }
