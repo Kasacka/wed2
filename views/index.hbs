@@ -1,45 +1,44 @@
-<a href="/note" class="btn btn-secondary">Neue Notiz erstellen</a>
+<div class="menu">
+    <a href="/note" class="btn btn-secondary menu-item">Neue Notiz erstellen</a>
 
-<a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="btn 
-{{#if finishedUntilActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Fälligkeitsdatum</a>
+    <a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="btn 
+    {{#if finishedUntilActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Fälligkeitsdatum sortieren</a>
 
-<a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="btn
- {{#if createdDateActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Erstellungsdatum</a>
+    <a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="btn
+    {{#if createdDateActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Erstellungsdatum sortieren</a>
 
-<a href="?sortBy=priority&direction={{priorityDirection}}" class="btn
- {{#if priorityActive}}btn-primary{{^}}btn-secondary{{/if}}">Nach Priorität</a>
-
+    <a href="?sortBy=priority&direction={{priorityDirection}}" class="btn
+    {{#if priorityActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Priorität sortieren</a>
+</div>
 <div>
 {{#if notes}}
 {{#each notes}}
-<div style="background-color: grey;" class="flex">
-    <div class="flex-item">
-        <span class="flex-item">
-            <span>{{dueTimeLabel}}</span>
-            <span>{{title}}</span>
-            <span>
-                {{#each priority}}*{{/each}}
-            </span>
-        </span>
-        <span class="flex-item">
-            <span>
-                {{#if isFinished}}
-                <input type="checkbox" disabled="disabled" checked="checked" class="form-control form-check-input" />
-                {{^}}
-                <input type="checkbox" disabled="disabled" class="form-control" />
-                {{/if}}
-                <span>erledigt</span>
-            </span>
-            <span>
-                <textarea disabled="disabled" class="form-control">{{description}}</textarea>
-            </span>
-        </span>
+<article>
+    <header class="space-between flex-items-center">
+        <h2>{{title}}</h2>
+        <small>
+            <i class="material-icons">
+            {{#if isFinished}}
+            erledigt
+            {{^}}
+            {{dueTimeLabel}}
+            {{/if}}
+            </i>
+        </small>
+    </header>
+    <textarea class="description" disabled>{{description}}</textarea>
+    <footer class="space-between flex-items-center">
+        <div>
+            {{#each priority}}
+            <img src="/star.png" class="icon" />
+            {{/each}}
+        </div>
         <div>
             <a href="/editNote/{{_id}}" class="btn btn-secondary">bearbeiten</a>
             <a href="/deleteNote/{{_id}}" class="btn btn-secondary">löschen</a>
         </div>
-    </div>
-</div>
+    </footer>
+</article>
 {{/each}}
 {{^}}
 <div class="alert alert-danger">Keine Todos gefunden!</div>

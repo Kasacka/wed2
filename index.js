@@ -1,6 +1,7 @@
 (async function() {
     const path = require('path');
     const express = require('express');
+    const session = require('express-session');
     const cookieParser = require('cookie-parser');
     const methodOverride = require('method-override');
     const bodyParser = require('body-parser');

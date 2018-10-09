@@ -1,5 +1,6 @@
 body {
     background-color: lightblue;
+    padding: 20px;
 }
 
 .error {
@@ -10,12 +11,44 @@ h1 {
     text-align: center;
 }
 
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.description {
+    width: 100%;
+    display: inline-block;
+}
+
 .flex {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+}
+
+.space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-items-center {
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0.8em -0.2em;
+}
+
+.menu-item {
+    margin: 0.2em;
+    flex-grow: 1;
 }
 
 textarea {
