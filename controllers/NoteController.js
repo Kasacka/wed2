@@ -16,12 +16,12 @@ function mapNoteToPriorityNote(note) {
 function index(request, response) {
     let query = url.parse(request.url, true).query;
 
+    if (query.darkStyle !== undefined)
+        request.session.darkStyle = query.darkStyle === '1';
+
     request.session.sortBy = query.sortBy || request.session.sortBy || 'finishedUntil';
     request.session.direction = query.direction || request.session.direction || 1;
-
-    if (query.darkStyle) {
-        request.session.darkStyle = !request.session.darkStyle;
-    }
+    request.session.darkStyle = request.session.darkStyle || false;
 
     noteDataService.getAllSorted(request.session.sortBy, request.session.direction)
         .then(notes => notes.map(mapNoteToDueLabelNote))

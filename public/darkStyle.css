@@ -8,3 +8,8 @@ a, button, .btn, input, .form-control, .form-control:active {
 	color: white;
 	border: 1px solid white;
 }
+
+.btn-primary {
+	background: blue;
+	color: white;
+}
