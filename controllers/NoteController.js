@@ -19,14 +19,18 @@ function index(request, response) {
     if (query.darkStyle !== undefined)
         request.session.darkStyle = query.darkStyle === '1';
 
-    request.session.sortBy = query.sortBy || request.session.sortBy || 'finishedUntil';
-    request.session.direction = query.direction || request.session.direction || 1;
-    request.session.darkStyle = request.session.darkStyle || false;
+    setStyleSessionData(request, query);
 
     noteDataService.getAllSorted(request.session.sortBy, request.session.direction)
         .then(notes => notes.map(mapNoteToDueLabelNote))
         .then(notes => notes.map(mapNoteToPriorityNote))
         .then(notes => renderIndex(request, response, notes));
+}
+
+function setStyleSessionData(request, query) {
+    request.session.sortBy = query.sortBy || request.session.sortBy || 'finishedUntil';
+    request.session.direction = query.direction || request.session.direction || 1;
+    request.session.darkStyle = request.session.darkStyle || false;
 }
 
 function renderIndex(request, response, notes) {
