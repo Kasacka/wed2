@@ -1,0 +1,10 @@
+body {
+	color: white;
+	background-color: black;
+}
+
+a, button, .btn, input, .form-control, .form-control:active {
+	background-color: darkblue;
+	color: white;
+	border: 1px solid white;
+}

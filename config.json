@@ -1,3 +1,4 @@
 {
-    "port" : 9999
+    "port" : 9999,
+    "sessionSecret" : "368ac0b1-a1ac-4375-b14c-76ed6c4bcd35"
 }

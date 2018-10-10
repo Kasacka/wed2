@@ -15,21 +15,31 @@ function mapNoteToPriorityNote(note) {
 
 function index(request, response) {
     let query = url.parse(request.url, true).query;
-    let sortBy = query.sortBy || 'finishedUntil';
-    let direction = query.direction || 1;
 
-    noteDataService.getAllSorted(sortBy, direction)
+    request.session.sortBy = query.sortBy || request.session.sortBy || 'finishedUntil';
+    request.session.direction = query.direction || request.session.direction || 1;
+
+    if (query.darkStyle) {
+        request.session.darkStyle = !request.session.darkStyle;
+    }
+
+    noteDataService.getAllSorted(request.session.sortBy, request.session.direction)
         .then(notes => notes.map(mapNoteToDueLabelNote))
         .then(notes => notes.map(mapNoteToPriorityNote))
-        .then(notes => renderIndex(response, notes, sortBy, direction));
+        .then(notes => renderIndex(request, response, notes));
 }
 
-function renderIndex(response, notes, sortBy, direction) {
+function renderIndex(request, response, notes) {
+    let sortBy = request.session.sortBy;
+    let direction = request.session.direction;
+    let darkStyle = request.session.darkStyle;
+
     let viewData = {
         finishedUntilActive: sortBy === 'finishedUntil',
         createdDateActive: sortBy === 'createdDate',
         priorityActive: sortBy === 'priority',
-        notes: notes
+        notes: notes,
+        darkStyle: darkStyle
     };
     
     viewData.finishedUntilDirection = viewData.finishedUntilActive ? -direction : 1;
@@ -79,12 +89,12 @@ function deleteNote(request, response) {
 
 
 function newNote(request, response) {
-    response.render('note', {});
+    response.render('note', {darkStyle: request.session.darkStyle});
 }
 
 function editNote(request, response) {
     noteDataService.getById(request.params.id)
-        .then(note => response.render('note', note));
+        .then(note => response.render('note', {...note, darkStyle: request.session.darkStyle}));
 }
 
 module.exports = {

@@ -11,6 +11,14 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 20px;
+}
+
+article {
+    margin-bottom: 40px;
+}
+
 .icon {
     width: 25px;
     height: 25px;

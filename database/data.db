@@ -1,11 +1,3 @@
-{"title":"Baden","description":"Hans","priority":"3","finishedUntil":"2019-12-12T12:33","isFinished":true,"_id":"VdO0KWjAdQaa6T42"}
-{"title":"Schwimmkurs geben","description":"* Kinder abholen\r\n* Schwimmkurs geben 2","priority":"4","finishedUntil":"2019-12-12T12:33","isFinished":true,"_id":"zZ6LhK565bJHJ7nu"}
-{"title":"Baden","description":"Hanssadf","priority":"3","finishedUntil":"2019-12-12T12:33","isFinished":true,"_id":"VdO0KWjAdQaa6T42"}
-{"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":false,"createdDate":1539084535887,"_id":"3ysFyQIesblMnjYq"}
-{"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"3ysFyQIesblMnjYq"}
-{"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":false,"_id":"3ysFyQIesblMnjYq"}
-{"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"3ysFyQIesblMnjYq"}
 {"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung\r\nHansi","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"3ysFyQIesblMnjYq"}
-{"$$deleted":true,"_id":"zZ6LhK565bJHJ7nu"}
+{"title":"Hans","description":"Test","priority":"3","finishedUntil":"2019-12-12T12:01","isFinished":true,"createdDate":1539085434339,"_id":"LD3Yfv6K0ZSvrRWS"}
 {"title":"Hansi","description":"test","priority":"3","finishedUntil":"2018-12-12T12:12","isFinished":true,"createdDate":1539084671902,"_id":"ZBugXFHN4K85ff5i"}
-{"title":"23","description":"3","priority":"5","finishedUntil":"2019-12-12T12:12","isFinished":true,"createdDate":1539084694451,"_id":"kH91DmnYNENmrNQp"}

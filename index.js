@@ -2,9 +2,9 @@
     const path = require('path');
     const express = require('express');
     const session = require('express-session');
-    const cookieParser = require('cookie-parser');
     const methodOverride = require('method-override');
     const bodyParser = require('body-parser');
+    const uuid = require('uuid/v1');
 
     const configurationService = require('./services/ConfigurationService');
     const router = require('./routes/index');
@@ -15,10 +15,16 @@
 
     app.set('view engine', 'hbs');
 
+    const sessionConfiguration = {
+        secret: configuration.sessionSecret,
+        resave: false,
+        saveUninitialized: false
+    };
+
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
-    app.use(cookieParser());
     app.use(express.static(path.join(__dirname, 'public')));
+    app.use(session(sessionConfiguration));
 
     app.use(methodOverride(request => {
         if (request.body && typeof request.body === 'object' &&
