@@ -7,7 +7,7 @@
     <a href="?sortBy=priority&direction={{priorityDirection}}" class="btn
     {{#if priorityActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Priorität sortieren</a>
     <a href="?darkStyle={{#if darkStyle}}0{{^}}1{{/if}}" class="btn btn-secondary">DarkStyle &copy;</a>
-    <a href="?showFinished={{#if showFinished}}0{{^}}1{{/if}}" class="btn btn-secondary menu-item"> 
+    <a href="?showFinished={{#if showFinished}}0{{^}}1{{/if}}" class="btn {{#if showFinished}}btn-secondary{{^}}btn-primary{{/if}} menu-item"> 
         Fertige {{#if showFinished}}ausblenden{{^}}anzeigen{{/if}}
     </a>
 </div>
