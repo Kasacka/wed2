@@ -16,34 +16,41 @@ function mapNoteToPriorityNote(note) {
 function index(request, response) {
     let query = url.parse(request.url, true).query;
 
-    if (query.darkStyle !== undefined)
-        request.session.darkStyle = query.darkStyle === '1';
-
     setStyleSessionData(request, query);
 
-    noteDataService.getAllSorted(request.session.sortBy, request.session.direction)
+    noteDataService.getAllSorted(request.session.sortBy, request.session.direction,
+        request.session.showFinished)
         .then(notes => notes.map(mapNoteToDueLabelNote))
         .then(notes => notes.map(mapNoteToPriorityNote))
         .then(notes => renderIndex(request, response, notes));
 }
 
 function setStyleSessionData(request, query) {
+    if (query.darkStyle !== undefined)
+        request.session.darkStyle = query.darkStyle === '1';
+
+    if (query.showFinished !== undefined)
+        request.session.showFinished = query.showFinished === '1';
+
     request.session.sortBy = query.sortBy || request.session.sortBy || 'finishedUntil';
     request.session.direction = query.direction || request.session.direction || 1;
     request.session.darkStyle = request.session.darkStyle || false;
+    request.session.showFinished = request.session.showFinished || false;
 }
 
 function renderIndex(request, response, notes) {
     let sortBy = request.session.sortBy;
     let direction = request.session.direction;
     let darkStyle = request.session.darkStyle;
+    let showFinished = request.session.showFinished;
 
     let viewData = {
         finishedUntilActive: sortBy === 'finishedUntil',
         createdDateActive: sortBy === 'createdDate',
         priorityActive: sortBy === 'priority',
         notes: notes,
-        darkStyle: darkStyle
+        darkStyle: darkStyle,
+        showFinished: showFinished
     };
     
     viewData.finishedUntilDirection = viewData.finishedUntilActive ? -direction : 1;

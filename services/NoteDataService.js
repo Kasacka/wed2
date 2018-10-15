@@ -42,11 +42,15 @@
         });
     }
 
-    async function getAllSorted(sortAttribute, direction) {
+    async function getAllSorted(sortAttribute, direction, showFinished) {
         let sortSettings = {};
         sortSettings[sortAttribute] = direction;
+        let query = {};
+        if (!showFinished) {
+            query.isFinished = false;
+        }
         return new Promise((resolve, reject) => {
-            db.find({}).sort(sortSettings).exec((error, notes) => {
+            db.find(query).sort(sortSettings).exec((error, notes) => {
                 handleAsyncResult(error, notes, resolve, reject);
             });
         });

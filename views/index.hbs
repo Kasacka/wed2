@@ -1,16 +1,15 @@
 <div class="menu">
     <a href="/note" class="btn btn-secondary menu-item">Neue Notiz erstellen</a>
-
     <a href="/?sortBy=finishedUntil&direction={{finishedUntilDirection}}" class="btn 
     {{#if finishedUntilActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Fälligkeitsdatum sortieren</a>
-
     <a href="/?sortBy=createdDate&direction={{createdDateDirection}}" class="btn
     {{#if createdDateActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Erstellungsdatum sortieren</a>
-
     <a href="?sortBy=priority&direction={{priorityDirection}}" class="btn
     {{#if priorityActive}}btn-primary{{^}}btn-secondary{{/if}} menu-item">Nach Priorität sortieren</a>
-    
     <a href="?darkStyle={{#if darkStyle}}0{{^}}1{{/if}}" class="btn btn-secondary">DarkStyle &copy;</a>
+    <a href="?showFinished={{#if showFinished}}0{{^}}1{{/if}}" class="btn btn-secondary menu-item"> 
+        Fertige {{#if showFinished}}ausblenden{{^}}anzeigen{{/if}}
+    </a>
 </div>
 <div>
 {{#if notes}}
