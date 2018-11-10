@@ -55,8 +55,9 @@ article {
 }
 
 .menu-item {
-    margin: 0.2em;
+    margin-top: 0.1em;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 textarea {

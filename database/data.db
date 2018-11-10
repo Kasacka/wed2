@@ -1,6 +1,5 @@
-{"title":"Hans Meier","description":"Test Versuch\r\nSkizze Lösung\r\nHansi","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"3ysFyQIesblMnjYq"}
-{"title":"Hans","description":"Test","priority":"3","finishedUntil":"2019-12-12T12:01","isFinished":true,"createdDate":1539085434339,"_id":"LD3Yfv6K0ZSvrRWS"}
-{"title":"gggg","description":"hhhhkkkkk","priority":"5","finishedUntil":"2018-10-07T10:00","isFinished":false,"_id":"iEi0tkmAN7tfPyOm"}
-{"$$deleted":true,"_id":"iEi0tkmAN7tfPyOm"}
-{"$$deleted":true,"_id":"LD3Yfv6K0ZSvrRWS"}
-{"$$deleted":true,"_id":"3ysFyQIesblMnjYq"}
+{"title":"NEUUU","description":"asfsdafd","priority":"3","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"9dv8mPObzdnwa9LM"}
+{"title":"NEUUU","description":"Test","priority":"3","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"9dv8mPObzdnwa9LM"}
+{"$$deleted":true,"_id":"9dv8mPObzdnwa9LM"}
+{"title":"Hans Meier","description":"Versuch","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"createdDate":1541866072382,"_id":"J53Khg1DN5bFOJBd"}
+{"title":"Guten Tag","description":"Versuch","priority":"4","finishedUntil":"2019-12-12T12:12","isFinished":true,"_id":"J53Khg1DN5bFOJBd"}
